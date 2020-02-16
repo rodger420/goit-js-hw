@@ -1,6 +1,6 @@
 'use strict';
 const inventory = {
-  items: ['Монорельса', 'Фильтр'],
+  items: ['Knife', 'Gas mask'],
   add(itemName) {
     this.items.push(itemName);
   },
@@ -15,12 +15,14 @@ const invokeInventoryOperation = function(itemName, inventoryAction) {
   arr();
 };
 
-invokeInventoryOperation('Аптечка', inventory.add);
-// Invoking add opeartion on Аптечка
+invokeInventoryOperation('Medkit', inventory.add);
+// Invoking action on Medkit
+// Adding Medkit to inventory
 
-console.log(inventory.items); // ['Монорельса', 'Фильтр', 'Аптечка']
+console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
 
-invokeInventoryOperation('Фильтр', inventory.remove);
-// Invoking remove opeartion on Фильтр
+invokeInventoryOperation('Gas mask', inventory.remove);
+// Invoking action on Gas mask
+// Removing Gas mask from inventory
 
-console.log(inventory.items); // ['Монорельса', 'Аптечка']
+console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
