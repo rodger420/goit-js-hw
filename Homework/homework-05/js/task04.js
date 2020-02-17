@@ -1,29 +1,32 @@
-'use strict'
+"use strict";
 class StringBuilder {
   constructor(value) {
     this._value = value;
   }
+  append(str) {
+    this._value = this._value + str;
+  }
+
+  prepend(str) {
+    this._value = str + this._value;
+  }
+
+  pad(str) {
+    this._value = str + this._value + str;
+  }
+
   get value() {
     return this._value;
   }
-  append(str) {
-    this._value = `${this.value}${str}`;
-  }
-  prepend(str) {
-    this._value = `${str}${this._value}`;
-  }
-  pad(str) {
-    this._value = `${str}${this._value}${str}`;
-  }
 }
 
-const builder = new StringBuilder('.');
+const builder = new StringBuilder(".");
 
-builder.append('^');
+builder.append("^");
 console.log(builder.value); // '.^'
 
-builder.prepend('^');
+builder.prepend("^");
 console.log(builder.value); // '^.^'
 
-builder.pad('=');
+builder.pad("=");
 console.log(builder.value); // '=^.^='

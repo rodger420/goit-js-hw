@@ -1,9 +1,12 @@
 'use strict';
-const liItems = document.querySelectorAll('.item');
-console.log(liItems.length);
-const item = document.querySelector('.item');
-for (let i = 0; i < liItems.length; i += 1) {
-  console.log(
-    `Категория: ${liItems[i].firstElementChild.textContent},
-     Количество элементов: ${liItems[i].lastElementChild.children.length}`);
-}
+const categories = document.querySelector('#categories');
+
+const res = categories.children.length;
+console.log(res);
+
+const str = [...categories.children]
+.map(e => `${e.children[0].textContent}: ${e.children[1].children.length}`)
+.join('\n');
+console.log(str);
+
+console.log(categories);

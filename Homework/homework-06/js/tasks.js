@@ -64,22 +64,22 @@ console.log(getNamesSortedByFriendsCount(users));
 
 // task10==========================
 
-const getSortedUniqueSkills = users =>
-  // users.reduce((allSkills, user) => {
-  //   users.filter(
-  //     (elem, pos, arr) =>
-  //       pos !== arr.indexOf(elem) || pos !== arr.lastIndexOf(elem),
-  //   );
-  //   allSkills.push(...user.skills);
-
-  //   return allSkills;
-  // }, []);
-  users.reduce((allSkills, user) => {
-    user.skills.filter(skill =>
-      allSkills.includes(skill) ? false : allSkills.push(skill),
-    );
-    return [...allSkills].sort();
+const getAllskills = users =>
+  users.reduce((acc, user) => {
+    acc.push(...user.skills);
+    return acc;
   }, []);
 
-console.log(getSortedUniqueSkills(users));
-// [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
+const Allskills = getAllskills(users);
+
+const getUniqueSkills = (acc, skill) => {
+  if (!acc.includes(skill)) {
+    acc.push(skill);
+  }
+  return acc;
+};
+
+const getSortedUniqueSkills = Allskills =>
+  Allskills.reduce(getUniqueSkills, []).sort();
+
+console.log(getSortedUniqueSkills(Allskills));

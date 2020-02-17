@@ -1,9 +1,12 @@
-'use strict'
-const input = document.querySelector('#name-input');
-const outputSpan = document.querySelector('#name-output');
+'use script';
 
-const inputText = () => {
-  outputSpan.textContent = event.currentTarget.value;
-  if (input.value === "") outputSpan.textContent = 'Незнакомец';
-}
+const input = document.querySelector('#name-input');
+let output = document.querySelector('#name-output');
+
 input.addEventListener('input', inputText);
+
+function inputText(event) {
+  input.value === ''
+    ? (output.textContent = 'незнакомец')
+    : (output.textContent = event.currentTarget.value);
+}
