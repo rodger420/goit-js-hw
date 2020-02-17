@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "webpack-dev-server --env.mode development --config ./webpack/config.js",
+    "build": "webpack --env.mode production --config ./webpack/config.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/luxplanjay/webpack-starter-kit/issues"
   },
-  "homepage": "https://github.com/rodger420/goit-js-hw/tree/master/Homework/goit-js-hw-10-food-service",
+  "homepage": "https://github.com/rodger420/goit-js-hw",
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
